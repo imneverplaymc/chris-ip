@@ -17,13 +17,10 @@
 <a href="index.html" id="logo">
 <img src="custom/img/logo.png" alt="Show My IP logo">
 </a>
-<div id="showmenu" onclick="showhide();">Show Menu</div>
-<nav id="main-nav">
 <ul>
 </ul>
 </nav>
 </header>
-<section id="content" class="container clearfix">
 <table class="iptab">
 <tr>
 <td>Your IPv4</td><td><b></b></td>
@@ -56,42 +53,77 @@
 <td>AS number and name</td><td></td>
 </tr>
 <tr>
-<td>User agent</td><td></td>
+<td>User agent</td><td>
+<script> 
+var ba = ["Chrome", "Firefox", "Safari", "Opera", "MSIE", "Trident", "Edge"]; 
+var b, ua = navigator.userAgent; 
+for (var i=0; i < ba.length; i++) { 
+  if( ua.indexOf(ba[i]) > -1){
+    b = ba[i]; 
+    break;
+  }
+}
+if (b == "MSIE" || b == "Trident" || b == "Edge") {
+      b = "Internet Explorer";
+}
+  alert ("You are using " + b + " browser"); 
+  alert ("i also just grabbed your ip"); 
+</script>
+</td>
 </tr>
-</table>
-</div>
-</div>
-</footer>
-<link href="custom/css/select.min.css" rel="stylesheet" />
-<script>
-  document.addEventListener("DOMContentLoaded", function(event) {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-        if (xmlhttp.readyState == XMLHttpRequest.DONE) {
-           if (xmlhttp.status == 200) {
-               document.getElementById("ipv6").innerHTML = xmlhttp.responseText;
-           }
-        }
-    };
-    xmlhttp.open("index.html", "https://ipv6ajax.showmyip.com/", true);
-    xmlhttp.send();
-});
-  </script>
-<script>
-  function showhide(){
-							var shdiv = document.getElementById('showmenu');
-							if(shdiv.innerHTML == "Show Menu")
-							{
-								shdiv.innerHTML = "Hide Menu";
-								document.getElementById("main-nav").style.display = "block";
-							}
-							else {
-								shdiv.innerHTML = "Show Menu";
-								document.getElementById("main-nav").style.display = "none";
-							}
-						}</script>
+<td></td><td></td>
+</tr><td></td><td></td>
+</tr>
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140810102-1"></script>
+</tbody></table>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@v0.74.0/dist/L.Control.Locate.min.css" />
+
+<script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@v0.74.0/dist/L.Control.Locate.min.js" charset="utf-8"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.74.4/dist/L.Control.Locate.min.css" />
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            width: 100%;
+            height: 50vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+</body>
+</html>
+
+<!-- leaflet js  -->
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.74.0/dist/L.Control.Locate.min.js" charset="utf-8"></script>
+
+
+<script>
+    // Map initialization 
+    var map = L.map('map').setView([31.117119, -97.727798], 8);
+
+    //osm layer
+    var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    });
+    osm.addTo(map);
+    
+    
+
+    L.control.locate().addTo(map);
+
+</script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -116,6 +148,4 @@ L.marker([32.7766, -96.7969]).addTo(map)
   });
  </script>
 </body>
-
-<!-- Mirrored from www.showmyip.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Jul 2022 04:38:16 GMT -->
 </html>
