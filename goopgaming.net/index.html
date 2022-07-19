@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>GoopGaming</title>
+<link rel="icon" href="dickswett.ico" type="image/png">
+<link rel="canonical" href="index.html" /><meta name="keywords" content="showmyip, show my ip, what is my ip, ip address"><meta name="description" content="Show My IP displays your IP address with additional information like the country, city, ISP, and user agent.">
+<link rel="stylesheet" href="custom/css/style.min1bce.css?v=6" media="screen" />
+<!--[if lte IE 6]>
+		<link rel="stylesheet" href="//universal-ie6-css.googlecode.com/files/ie6.1.1.css" media="screen, projection">
+	<![endif]-->
+<script async src="../pagead2.googlesyndication.com/pagead/js/fbf08.txt?client=ca-pub-8339395746880359" crossorigin="anonymous"></script>
+</head>
+<body>
+<header id="header" class="container clearfix">
+<a href="index.html" id="logo">
+<img src="custom/img/logo.png" alt="Show My IP logo">
+</a>
+<div id="showmenu" onclick="showhide();">Show Menu</div>
+<nav id="main-nav">
+<ul>
+</ul>
+</nav>
+</header>
+<section id="content" class="container clearfix">
+<table class="iptab">
+<tr>
+<td>Your IPv4</td><td><b>98.97.82.14</b></td>
+</tr>
+<tr>
+<td>Your IPv6</td><td><div id="ipv6" style="font-size: 12px;">Loading IPv6...</div></td>
+</tr>
+<tr>
+<td>Country</td><td>United States</td>
+</tr>
+<tr>
+<td>Region</td><td>Texas</td>
+</tr>
+<tr>
+<td>City</td><td>Dallas</td>
+</tr>
+<tr>
+<td>ZIP</td><td>Unknown</td>
+</tr>
+<tr>
+<td>Timezone</td><td>America/Chicago</td>
+</tr>
+<tr>
+<td>Internet Service Provider (ISP)</td><td>SpaceX Starlink</td>
+</tr>
+<tr>
+<td>Organization</td><td>SpaceX Services, Inc</td>
+</tr>
+<tr>
+<td>AS number and name</td><td>AS14593 Space Exploration Technologies Corporation</td>
+</tr>
+<tr>
+<td>User agent</td><td>Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)</td>
+</tr>
+</table>
+</div>
+</div>
+</footer>
+<link href="custom/css/select.min.css" rel="stylesheet" />
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == XMLHttpRequest.DONE) {
+           if (xmlhttp.status == 200) {
+               document.getElementById("ipv6").innerHTML = xmlhttp.responseText;
+           }
+        }
+    };
+    xmlhttp.open("index.html", "https://ipv6ajax.showmyip.com/", true);
+    xmlhttp.send();
+});
+  </script>
+<script>
+  function showhide(){
+							var shdiv = document.getElementById('showmenu');
+							if(shdiv.innerHTML == "Show Menu")
+							{
+								shdiv.innerHTML = "Hide Menu";
+								document.getElementById("main-nav").style.display = "block";
+							}
+							else {
+								shdiv.innerHTML = "Show Menu";
+								document.getElementById("main-nav").style.display = "none";
+							}
+						}</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140810102-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-140810102-1');
+</script>
+<style>#ipmap{height:500px;width:100%;margin-bottom:10px}</style>
+<link rel="stylesheet" href="../unpkg.com/leaflet%401.6.0/dist/leaflet.css" crossorigin="" />
+<script src="../unpkg.com/leaflet%401.6.0/dist/leaflet.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+
+ var map = L.map('ipmap').setView([32.7766, -96.7969], 10);
+
+L.tileLayer('../%7bs%7d.tile.openstreetmap.org/%7bz%7d/%7bx%7d/%7by%7d.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+L.marker([32.7766, -96.7969]).addTo(map)
+    .bindPopup('Dallas, United States<br/>(Actual location may be different)')
+    .openPopup();
+  });
+ </script>
+</body>
+
+<!-- Mirrored from www.showmyip.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Jul 2022 04:38:16 GMT -->
+</html>
